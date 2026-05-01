@@ -1,4 +1,4 @@
-# bash-scripts
+# Semester Organization Scripts
 A suite of bash scripts for semester/course directory automation and management 
 
 ## Directory structure produced:
