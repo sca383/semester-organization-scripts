@@ -17,7 +17,7 @@ SCRIPT_DIR="$(dirname "$0")"
 if [[ -z "$1" ]]; then
     read -p "Please enter the directory for the semester directory to be created: " BASE_DIR
 else
-    BASE_DIR=$1
+    BASE_DIR=$1 # semester's dir
 fi
 
 if [[ -z "$2" ]]; then
@@ -25,8 +25,8 @@ if [[ -z "$2" ]]; then
 else
     SEMESTER_NAME=$2
 fi
-
-mkdir -p "$BASE_DIR/$SEMESTER_NAME"
+mkdir -p "$BASE_DIR/active"
+mkdir -p "$BASE_DIR/active/$SEMESTER_NAME"
 echo "Created semester folder: $BASE_DIR/$SEMESTER_NAME"
 
 while true; do
@@ -34,7 +34,7 @@ while true; do
     if [[ -z "$course_input" ]]; then
         break
     fi
-    "$SCRIPT_DIR/new_course.sh" "$BASE_DIR/$SEMESTER_NAME" "$course_input"
+    "$SCRIPT_DIR/new_course.sh" "$BASE_DIR/active/$SEMESTER_NAME" "$course_input"
 done
 
 echo "Semester $SEMESTER_NAME directory set up done"
